@@ -1,0 +1,5 @@
+# Cron entries for gs_cron_jobs
+# Update REPO_PATH and CRON_USER before installing.
+
+*/5 * * * * CRON_USER cd REPO_PATH && /usr/bin/env bash -c 'set -a; . ./.env; set +a; REPO_PATH/.venv/bin/python -m cron_scripts.commercial_license_check >> /var/log/gs_cron_jobs/license_check.log 2>&1'
+*/5 * * * * CRON_USER cd REPO_PATH && /usr/bin/env bash -c 'set -a; . ./.env; set +a; REPO_PATH/.venv/bin/python -m cron_scripts.commercial_sync_script >> /var/log/gs_cron_jobs/sync_script.log 2>&1'
